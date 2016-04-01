@@ -1,0 +1,6 @@
+APP NAME: df-test
+KEYSTRING: fg84b45z43qexai25bn08w4q
+SHARED SECRET: urqc08ldlw
+
+
+GET https://openapi.etsy.com/v2/listings/active?api_key={YOUR_API_KEY}
