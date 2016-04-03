@@ -1,14 +1,8 @@
-# angular-seed — the seed for AngularJS apps
+# Dame Fishy
 
-This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
-You can use it to quickly bootstrap your angular webapp projects and dev environment for these
-projects.
+This project is an application skeleton for a new version of DameFishy.com developed as an [AngularJS](http://angularjs.org/) web app.
 
-The seed contains a sample AngularJS application and is preconfigured to install the Angular
-framework and a bunch of development and testing tools for instant web development gratification.
-
-The seed app doesn't do much, just shows how to wire two controllers and views together.
-
+The purpose of this application is primarily to experiment AngularJS, Jasmine + Karma, ES6, GitHub
 
 ## Getting Started
 

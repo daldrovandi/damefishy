@@ -3,7 +3,7 @@
     angular
         .module('myApp', [
             'ngComponentRouter',
-            'etsy'
+            'myApp.etsy'
             //'myApp.view1',
             //'myApp.view2',
             //'myApp.version'

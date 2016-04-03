@@ -4,14 +4,15 @@
 
 'use strict';
 
-fdescribe('etsy functionalities tests', function () {
+describe('etsy functionalities tests', function () {
 
-    var $scope, etsyService;
+    var $scope, $httpBackend, etsyService;
 
-    beforeEach(module('etsy'));
+    beforeEach(module('myApp.etsy'));
 
-    beforeEach(inject(function (_EtsyService_, $rootScope) {
+    beforeEach(inject(function (_EtsyService_, $rootScope, _$httpBackend_) {
         $scope = $rootScope.$new();
+        $httpBackend = _$httpBackend_;
         etsyService = _EtsyService_;
     }));
 
@@ -26,9 +27,27 @@ fdescribe('etsy functionalities tests', function () {
         expect(etsyService).toBeDefined();
     }));
 
-    it('should call EtsyService.getActivveListing', inject(function(){
+    it('should call EtsyService.getActivveListing', inject(function () {
         spyOn(etsyService, 'getActiveListing');
         var result = etsyService.getActiveListing();
         expect(etsyService.getActiveListing).toHaveBeenCalled();
     }));
+
+    it('should return 200 from Etsy API - Active Listing', inject(function () {
+        $httpBackend.expectGET('https://openapi.etsy.com/v2/listings/active?api_key=fg84b45z43qexai25bn08w4q').respond('Hi!');
+        etsyService.getActiveListing().then(function (data) {
+            expect(data).toEqual('Hi!');
+        });
+        $httpBackend.flush();
+    }));
+
+    it('should return a correct Etsy URI if the parameter is an array', ()=> {
+        var uri = etsyService._getEtsyUrl(['shops', 'daldrovandi']);
+
+        expect(uri).toBe('https://openapi.etsy.com/v2/shops/daldrovandi?api_key=fg84b45z43qexai25bn08w4q');
+
+        uri = etsyService._getEtsyUrl('shops/daldrovandi');
+
+        expect(uri).toBe('https://openapi.etsy.com/v2/shops/daldrovandi?api_key=fg84b45z43qexai25bn08w4q');
+    });
 });

@@ -6,13 +6,13 @@
     'use strict';
 
     class EtsyController {
-        constructor($scope, $http) {
+        constructor() {
         }
     }
 
     angular
-        .module('etsy', [])
-        .controller('EtsyController', ['EtsyService', EtsyController]);
+        .module('myApp.etsy', [])
+        .controller('EtsyController', ['EtsyService',  EtsyController]);
         //.component('etsyComponent', {
         //    templateUrl: 'templates/etsy.html',
         //    controller: EtsyController

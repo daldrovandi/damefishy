@@ -3,18 +3,11 @@
  */
 
 describe('myApp test', function () {
-    var $httpBackend;
+    var CONFIG;
 
     beforeEach(module('myApp'));
 
     beforeEach(inject(function ($injector) {
-        $httpBackend = $injector.get('$httpBackend');
-
-        $httpBackend
-            .when('GET', 'https://openapi.etsy.com/v2/listings/active?api_key=fg84b45z43qexai25bn08w4q')
-            .respond({
-                status: 200
-            })
     }));
 
     describe('testing the test', function () {
@@ -28,10 +21,6 @@ describe('myApp test', function () {
         it('should have Etsy Controller', function ($controller) {
             var ctrl = $controller('EtsyController');
             expect(viewctrl1Ctrl).toBeDefined();
-        });
-
-        it('should call Etsy API', function () {
-
         });
     });
 
