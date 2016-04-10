@@ -2,10 +2,10 @@
  * Created by dald on 30/03/2016.
  */
 
-describe('myApp test', function () {
+describe('damefishyApp test', function () {
     var CONFIG;
 
-    beforeEach(module('myApp'));
+    beforeEach(module('dfApp'));
 
     beforeEach(inject(function ($injector) {
     }));

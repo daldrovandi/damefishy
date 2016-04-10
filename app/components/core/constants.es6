@@ -10,7 +10,7 @@
     const _shopID = '12810272';
 
     angular
-        .module('myApp')
+        .module('dfApp')
         .constant('CONFIG', {
             API_KEY: _apiKey,
             API_HOST: _apiHost,

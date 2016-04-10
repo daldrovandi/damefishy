@@ -1,24 +1,22 @@
 (function () {
     'use strict';
+
     angular
-        .module('myApp', [
-            'ngComponentRouter',
-            'myApp.etsy'
-            //'myApp.view1',
-            //'myApp.view2',
-            //'myApp.version'
-        ])
-        .config(function ($locationProvider) {
+        .module('dfApp', ['ui.bootstrap', 'ngComponentRouter', 'dfApp.etsy'])
+
+        .config(function($locationProvider) {
             $locationProvider.html5Mode(true);
         })
+
         .value('$routerRootComponent', 'app')
+
         .component('app', {
-            templateUrl: 'templates/nav.html',
+            template: '<ng-outlet></ng-outlet>',
             $routeConfig: [
                 {
-                    path: '/etsy/',
+                    path: '/etsy',
                     name: 'Etsy',
-                    component: 'etsyComponent'
+                    component: 'etsy'
                 }
             ]
         });

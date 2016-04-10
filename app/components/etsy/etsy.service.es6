@@ -11,24 +11,24 @@
 
     let _http = new WeakMap();
 
+    var _getEtsyUrl = function (uri) {
+        if (Array.isArray(uri))
+            uri = uri.join('/');
+
+        if (!uri.startsWith('/'))
+            uri = '/' + uri;
+
+        return API_HOST + uri + '?api_key=' + API_KEY;
+    };
+
     class EtsyService {
         constructor($http) {
             _http.set(this, $http);
         }
 
-        _getEtsyUrl(uri) {
-            if (Array.isArray(uri))
-                uri = uri.join('/');
-
-            if(!uri.startsWith('/'))
-                uri = '/' + uri;
-
-            return API_HOST + uri + '?api_key=' + API_KEY;
-        }
-
         getActiveListing() {
             return _http.get(this)
-                .get(this._getEtsyUrl('/listings/active'))
+                .get(_getEtsyUrl('/listings/active'))
                 .then(function (response) {
                     return response.data;
                 });
@@ -36,10 +36,14 @@
 
         getShop(shopName) {
             return _http.get(this)
-                .get(this._getEtsyUrl(['shops', shopName]))
+                .get(_getEtsyUrl(['shops', shopName]))
                 .then(function (response) {
                     return response.data;
                 });
+        }
+
+        etsyURI(uri) {
+            return _getEtsyUrl(uri);
         }
 
         static etsyServiceFactory($http) {
@@ -48,6 +52,7 @@
     }
 
     angular
-        .module('myApp.etsy')
-        .factory('EtsyService', EtsyService.etsyServiceFactory);
+        .module('dfApp.etsy')
+
+        .service('EtsyService', EtsyService);
 })();
