@@ -4,5 +4,5 @@
 
 (function () {
     'use strict';
-ADSASLKDadl;kasMDLK;ASmd
+angularModule.module().thead;
 })();
