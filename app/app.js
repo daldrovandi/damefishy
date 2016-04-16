@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('dfApp', ['ui.bootstrap', 'ngComponentRouter', 'dfApp.etsy'])
+        .module('dfApp', ['ui.bootstrap', 'ngComponentRouter', 'dfApp.etsy', 'dfApp.about'])
 
         .config(function($locationProvider) {
             $locationProvider.html5Mode(true);
@@ -13,6 +13,11 @@
         .component('app', {
             template: '<ng-outlet></ng-outlet>',
             $routeConfig: [
+                {
+                    path: '/about',
+                    name: 'About',
+                    component: 'about'
+                },
                 {
                     path: '/etsy',
                     name: 'Etsy',

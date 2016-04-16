@@ -6,17 +6,16 @@
     'use strict';
 
     class EtsyController {
-        constructor($scope, etsyService) {
-
-
+        constructor($scope, EtsyService) {
+            $scope.shop = EtsyService.getShop('dftest');
         }
     }
 
     angular
         .module('dfApp.etsy', [])
-
         .component('etsy', {
             templateUrl: 'components/etsy/etsy.html',
+            bindings: '=',
             controller: EtsyController
         });
 })();

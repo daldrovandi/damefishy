@@ -38,6 +38,10 @@ describe('etsy functionalities tests', function () {
         expect(component).toBeDefined();
     });
 
+    //it('should have an EtsyService from the controller', () => {
+    //    expect(component.etsyService).toBeDefined();
+    //});
+
     it('should have EtsyService defined', inject(function () {
         expect(etsyService).toBeDefined();
         expect(etsyService.getActiveListing).toBeDefined();

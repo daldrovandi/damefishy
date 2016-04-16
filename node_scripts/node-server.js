@@ -28,6 +28,9 @@ var path = require('path');
 var app = express();
 var rootPath = path.normalize(__dirname + '/../');
 
-app.use(express.static(rootPath));
+app.use(express.static(rootPath + '/app'));
+app.all('/*', function(req, res) {
+    res.sendfile('app/index.html'); // or the name of your angular app html file
+});
 app.listen(3000);
 console.log('Listening on port 3000 ...');

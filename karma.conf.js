@@ -15,6 +15,8 @@ module.exports = function (config) {
             //'app/tests/**/*.*.es6',
             'app/components/etsy/etsy.controller.es6',
             'app/components/etsy/etsy.service.es6',
+            'app/components/about/about.controller.es6',
+            'app/components/about/about.service.es6',
 
             {
                 pattern: 'app/tests/mock-data/*.json',
