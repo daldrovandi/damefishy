@@ -5,4 +5,5 @@
 (function () {
     'use strict';
 angularModule.module().thead;
+    var message = 'hi from master'
 })();
